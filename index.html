@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Collection - TypeScript</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Game Collection</h1>
+        <div class="game-selector">
+            <button id="guessNumberBtn" class="game-btn">Tebak Angka</button>
+            <button id="ticTacToeBtn" class="game-btn">Tic-Tac-Toe</button>
+        </div>
+
+        <!-- Guess Number Game -->
+        <div id="guessNumberGame" class="game-container hidden">
+            <h2>Game Tebak Angka</h2>
+            <p>Saya telah memilih angka antara 1-100. Coba tebak!</p>
+
+            <!-- Bot Helper Options -->
+            <div class="bot-helper">
+                <h3>Bantuan Bot:</h3>
+                <div class="helper-buttons">
+                    <button id="getHint" class="helper-btn">💡 Minta Hint</button>
+                    <button id="autoSolve" class="helper-btn">🤖 Auto Solve</button>
+                    <button id="showRange" class="helper-btn">📊 Tampilkan Range</button>
+                </div>
+            </div>
+
+            <div class="game-info">
+                <p>Percobaan: <span id="attempts">0</span></p>
+                <p>Skor Terbaik: <span id="bestScore">-</span></p>
+                <p id="currentRange" class="range-info hidden">Range: 1 - 100</p>
+            </div>
+            <div class="input-group">
+                <input type="number" id="guessInput" min="1" max="100" placeholder="Masukkan tebakan (1-100)">
+                <button id="submitGuess">Tebak!</button>
+            </div>
+            <div id="guessResult" class="result"></div>
+            <div id="hintResult" class="hint-result hidden"></div>
+            <button id="newGameGuess" class="new-game-btn hidden">Game Baru</button>
+            <button id="backFromGuess" class="back-btn">Kembali</button>
+        </div>
+
+        <!-- Tic-Tac-Toe Game -->
+        <div id="ticTacToeGame" class="game-container hidden">
+            <h2>Tic-Tac-Toe</h2>
+
+            <!-- Game Mode Selection -->
+            <div class="game-mode-selection">
+                <h3>Mode Permainan:</h3>
+                <div class="mode-buttons">
+                    <button id="pvpMode" class="mode-btn active">Player vs Player</button>
+                    <button id="pvbMode" class="mode-btn">Player vs Bot</button>
+                </div>
+            </div>
+
+            <!-- Bot Difficulty Selection -->
+            <div id="botDifficulty" class="bot-difficulty hidden">
+                <h3>Tingkat Kesulitan Bot:</h3>
+                <div class="difficulty-buttons">
+                    <button id="easyBot" class="difficulty-btn">Mudah</button>
+                    <button id="mediumBot" class="difficulty-btn active">Sedang</button>
+                    <button id="hardBot" class="difficulty-btn">Sulit</button>
+                </div>
+            </div>
+
+            <div class="game-info">
+                <p>Giliran: <span id="currentPlayer">X</span></p>
+                <p id="gameMode">Mode: Player vs Player</p>
+                <p>Skor - X: <span id="scoreX">0</span> | O: <span id="scoreO">0</span> | Seri: <span
+                        id="scoreDraw">0</span></p>
+            </div>
+            <div id="ticTacToeBoard" class="board">
+                <div class="cell" data-index="0"></div>
+                <div class="cell" data-index="1"></div>
+                <div class="cell" data-index="2"></div>
+                <div class="cell" data-index="3"></div>
+                <div class="cell" data-index="4"></div>
+                <div class="cell" data-index="5"></div>
+                <div class="cell" data-index="6"></div>
+                <div class="cell" data-index="7"></div>
+                <div class="cell" data-index="8"></div>
+            </div>
+            <div id="ticTacToeResult" class="result"></div>
+            <button id="newGameTicTacToe" class="new-game-btn">Game Baru</button>
+            <button id="resetScore" class="reset-btn">Reset Skor</button>
+            <button id="backFromTicTacToe" class="back-btn">Kembali</button>
+        </div>
+    </div>
+
+    <script src="dist/main.js"></script>
+</body>
+
+</html>

@@ -14,6 +14,9 @@
         <div class="game-selector">
             <button id="guessNumberBtn" class="game-btn">Tebak Angka</button>
             <button id="ticTacToeBtn" class="game-btn">Tic-Tac-Toe</button>
+            <button id="memoryCardBtn" class="game-btn">Memory Card</button>
+            <button id="game2048Btn" class="game-btn">2048 Game</button>
+            <button id="tetrisBtn" class="game-btn">Tetris Game</button>
         </div>
 
         <!-- Guess Number Game -->
@@ -48,48 +51,519 @@
 
         <!-- Tic-Tac-Toe Game -->
         <div id="ticTacToeGame" class="game-container hidden">
-            <h2>Tic-Tac-Toe</h2>
+            <h2>Tic-Tac-Toe Enhanced</h2>
 
-            <!-- Game Mode Selection -->
-            <div class="game-mode-selection">
-                <h3>Mode Permainan:</h3>
-                <div class="mode-buttons">
-                    <button id="pvpMode" class="mode-btn active">Player vs Player</button>
-                    <button id="pvbMode" class="mode-btn">Player vs Bot</button>
+            <!-- Game Settings -->
+            <div class="game-settings">
+                <!-- Game Mode Selection -->
+                <div class="setting-group">
+                    <h3>Mode Permainan:</h3>
+                    <div class="mode-buttons">
+                        <button id="pvpMode" class="mode-btn active">Player vs Player</button>
+                        <button id="pvbMode" class="mode-btn">Player vs Bot</button>
+                    </div>
+                </div>
+
+                <!-- Board Size Selection -->
+                <div class="setting-group">
+                    <h3>Ukuran Board:</h3>
+                    <div class="size-buttons">
+                        <button id="size3" class="size-btn active">3x3</button>
+                        <button id="size4" class="size-btn">4x4</button>
+                        <button id="size5" class="size-btn">5x5</button>
+                    </div>
+                </div>
+
+                <!-- Tournament Mode -->
+                <div class="setting-group">
+                    <h3>Mode Tournament:</h3>
+                    <div class="tournament-buttons">
+                        <button id="single" class="tournament-btn active">Single Game</button>
+                        <button id="best3" class="tournament-btn">Best of 3</button>
+                        <button id="best5" class="tournament-btn">Best of 5</button>
+                        <button id="best7" class="tournament-btn">Best of 7</button>
+                    </div>
+                </div>
+
+                <!-- Custom Symbols -->
+                <div class="setting-group">
+                    <h3>Simbol Custom:</h3>
+                    <div class="symbol-selection">
+                        <div class="symbol-group">
+                            <label>Player 1:</label>
+                            <select id="player1Symbol">
+                                <option value="X">X</option>
+                                <option value="O">O</option>
+                                <option value="♠">♠</option>
+                                <option value="♥">♥</option>
+                                <option value="♦">♦</option>
+                                <option value="♣">♣</option>
+                                <option value="★">★</option>
+                                <option value="●">●</option>
+                                <option value="▲">▲</option>
+                                <option value="■">■</option>
+                            </select>
+                        </div>
+                        <div class="symbol-group">
+                            <label>Player 2:</label>
+                            <select id="player2Symbol">
+                                <option value="O">O</option>
+                                <option value="X">X</option>
+                                <option value="♠">♠</option>
+                                <option value="♥">♥</option>
+                                <option value="♦">♦</option>
+                                <option value="♣">♣</option>
+                                <option value="☆">☆</option>
+                                <option value="○">○</option>
+                                <option value="▼">▼</option>
+                                <option value="□">□</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bot Difficulty Selection -->
+                <div id="botDifficulty" class="setting-group hidden">
+                    <h3>Tingkat Kesulitan Bot:</h3>
+                    <div class="difficulty-buttons">
+                        <button id="easyBot" class="difficulty-btn">Mudah</button>
+                        <button id="mediumBot" class="difficulty-btn active">Sedang</button>
+                        <button id="hardBot" class="difficulty-btn">Sulit</button>
+                    </div>
                 </div>
             </div>
 
-            <!-- Bot Difficulty Selection -->
-            <div id="botDifficulty" class="bot-difficulty hidden">
-                <h3>Tingkat Kesulitan Bot:</h3>
-                <div class="difficulty-buttons">
-                    <button id="easyBot" class="difficulty-btn">Mudah</button>
-                    <button id="mediumBot" class="difficulty-btn active">Sedang</button>
-                    <button id="hardBot" class="difficulty-btn">Sulit</button>
+            <!-- Game Status -->
+            <div class="game-status">
+                <div class="current-game-info">
+                    <p>Giliran: <span id="currentPlayer">X</span></p>
+                    <p id="gameMode">Mode: Player vs Player</p>
+                    <p id="boardSize">Board: 3x3</p>
+                    <div id="timer" class="timer hidden">
+                        <p>Waktu: <span id="timeLeft">30</span>s</p>
+                        <div class="timer-bar">
+                            <div id="timerProgress" class="timer-progress"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tournament Status -->
+                <div id="tournamentStatus" class="tournament-status hidden">
+                    <h3>Tournament Progress</h3>
+                    <p>Game <span id="currentGame">1</span> of <span id="totalGames">1</span></p>
+                    <p>Player 1: <span id="tournamentScoreP1">0</span> | Player 2: <span id="tournamentScoreP2">0</span>
+                    </p>
+                </div>
+
+                <!-- Statistics -->
+                <div class="statistics">
+                    <h3>Statistik</h3>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <span class="stat-label">Games Played:</span>
+                            <span id="gamesPlayed">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Win Rate P1:</span>
+                            <span id="winRateP1">0%</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Win Rate P2:</span>
+                            <span id="winRateP2">0%</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Draw Rate:</span>
+                            <span id="drawRate">0%</span>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="game-info">
-                <p>Giliran: <span id="currentPlayer">X</span></p>
-                <p id="gameMode">Mode: Player vs Player</p>
-                <p>Skor - X: <span id="scoreX">0</span> | O: <span id="scoreO">0</span> | Seri: <span
-                        id="scoreDraw">0</span></p>
+            <!-- Game Board -->
+            <div id="ticTacToeBoard" class="board size-3">
+                <!-- Board cells will be generated dynamically -->
             </div>
-            <div id="ticTacToeBoard" class="board">
-                <div class="cell" data-index="0"></div>
-                <div class="cell" data-index="1"></div>
-                <div class="cell" data-index="2"></div>
-                <div class="cell" data-index="3"></div>
-                <div class="cell" data-index="4"></div>
-                <div class="cell" data-index="5"></div>
-                <div class="cell" data-index="6"></div>
-                <div class="cell" data-index="7"></div>
-                <div class="cell" data-index="8"></div>
-            </div>
+
             <div id="ticTacToeResult" class="result"></div>
-            <button id="newGameTicTacToe" class="new-game-btn">Game Baru</button>
-            <button id="resetScore" class="reset-btn">Reset Skor</button>
-            <button id="backFromTicTacToe" class="back-btn">Kembali</button>
+
+            <!-- Game Controls -->
+            <div class="game-controls">
+                <button id="newGameTicTacToe" class="new-game-btn">Game Baru</button>
+                <button id="resetStats" class="reset-btn">Reset Statistik</button>
+                <button id="toggleTimer" class="timer-btn">Toggle Timer</button>
+                <button id="backFromTicTacToe" class="back-btn">Kembali</button>
+            </div>
+        </div>
+
+        <!-- Memory Card Game -->
+        <div id="memoryCardGame" class="game-container hidden">
+            <h2>Memory Card Game</h2>
+
+            <!-- Game Settings -->
+            <div class="memory-settings">
+                <!-- Difficulty Selection -->
+                <div class="setting-group">
+                    <h3>Tingkat Kesulitan:</h3>
+                    <div class="difficulty-buttons">
+                        <button id="memory4x4" class="memory-difficulty-btn active">4x4 (Easy)</button>
+                        <button id="memory6x6" class="memory-difficulty-btn">6x6 (Medium)</button>
+                        <button id="memory8x8" class="memory-difficulty-btn">8x8 (Hard)</button>
+                    </div>
+                </div>
+
+                <!-- Theme Selection -->
+                <div class="setting-group">
+                    <h3>Tema Kartu:</h3>
+                    <div class="theme-buttons">
+                        <button id="themeNumbers" class="theme-btn active">Numbers</button>
+                        <button id="themeColors" class="theme-btn">Colors</button>
+                        <button id="themeSymbols" class="theme-btn">Symbols</button>
+                        <button id="themeEmojis" class="theme-btn">Emojis</button>
+                    </div>
+                </div>
+
+                <!-- Game Mode -->
+                <div class="setting-group">
+                    <h3>Mode Permainan:</h3>
+                    <div class="mode-buttons">
+                        <button id="memoryRelaxed" class="memory-mode-btn active">Relaxed</button>
+                        <button id="memorySpeed" class="memory-mode-btn">Speed Challenge</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Game Status -->
+            <div class="memory-status">
+                <div class="memory-info">
+                    <div class="info-item">
+                        <span class="info-label">Moves:</span>
+                        <span id="memoryMoves">0</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Matches:</span>
+                        <span id="memoryMatches">0</span> / <span id="memoryTotal">8</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Time:</span>
+                        <span id="memoryTime">00:00</span>
+                    </div>
+                    <div id="memorySpeedTimer" class="info-item speed-timer hidden">
+                        <span class="info-label">Time Left:</span>
+                        <span id="memoryTimeLeft">60</span>s
+                        <div class="speed-timer-bar">
+                            <div id="memoryTimerProgress" class="speed-timer-progress"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Statistics -->
+                <div class="memory-statistics">
+                    <h3>Statistik</h3>
+                    <div class="memory-stats-grid">
+                        <div class="stat-item">
+                            <span class="stat-label">Games Played:</span>
+                            <span id="memoryGamesPlayed">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Best Time:</span>
+                            <span id="memoryBestTime">--:--</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Best Moves:</span>
+                            <span id="memoryBestMoves">--</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Success Rate:</span>
+                            <span id="memorySuccessRate">0%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Game Board -->
+            <div id="memoryBoard" class="memory-board size-4">
+                <!-- Cards will be generated dynamically -->
+            </div>
+
+            <div id="memoryResult" class="result"></div>
+
+            <!-- Game Controls -->
+            <div class="game-controls">
+                <button id="newMemoryGame" class="new-game-btn">Game Baru</button>
+                <button id="resetMemoryStats" class="reset-btn">Reset Statistik</button>
+                <button id="backFromMemory" class="back-btn">Kembali</button>
+            </div>
+        </div>
+
+        <!-- 2048 Game -->
+        <div id="game2048" class="game-container hidden">
+            <h2>2048 Game Enhanced</h2>
+
+            <!-- Game Settings -->
+            <div class="game2048-settings">
+                <!-- Grid Size Selection -->
+                <div class="setting-group">
+                    <h3>Grid Size:</h3>
+                    <div class="grid-size-buttons">
+                        <button id="grid3x3" class="grid-size-btn">3x3</button>
+                        <button id="grid4x4" class="grid-size-btn active">4x4</button>
+                        <button id="grid5x5" class="grid-size-btn">5x5</button>
+                        <button id="grid6x6" class="grid-size-btn">6x6</button>
+                    </div>
+                </div>
+
+                <!-- Game Mode -->
+                <div class="setting-group">
+                    <h3>Game Mode:</h3>
+                    <div class="mode-buttons">
+                        <button id="manualMode" class="game2048-mode-btn active">Manual Play</button>
+                        <button id="aiMode" class="game2048-mode-btn">AI Solver</button>
+                        <button id="assistMode" class="game2048-mode-btn">AI Assist</button>
+                    </div>
+                </div>
+
+                <!-- AI Settings -->
+                <div id="aiSettings" class="setting-group hidden">
+                    <h3>AI Settings:</h3>
+                    <div class="ai-controls">
+                        <button id="aiStep" class="ai-btn">AI Step</button>
+                        <button id="aiAutoPlay" class="ai-btn">Auto Play</button>
+                        <button id="aiStop" class="ai-btn">Stop AI</button>
+                    </div>
+                    <div class="ai-speed">
+                        <label for="aiSpeed">AI Speed:</label>
+                        <input type="range" id="aiSpeed" min="100" max="2000" value="500" step="100">
+                        <span id="aiSpeedValue">500ms</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Game Status -->
+            <div class="game2048-status">
+                <div class="game2048-info">
+                    <div class="info-item">
+                        <span class="info-label">Score:</span>
+                        <span id="game2048Score">0</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Best:</span>
+                        <span id="game2048Best">0</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Moves:</span>
+                        <span id="game2048Moves">0</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Highest Tile:</span>
+                        <span id="game2048Highest">2</span>
+                    </div>
+                </div>
+
+                <!-- Achievements -->
+                <div class="achievements">
+                    <h3>Achievements</h3>
+                    <div class="achievement-grid">
+                        <div class="achievement" id="achievement128">
+                            <span class="achievement-tile">128</span>
+                            <span class="achievement-status">🔒</span>
+                        </div>
+                        <div class="achievement" id="achievement256">
+                            <span class="achievement-tile">256</span>
+                            <span class="achievement-status">🔒</span>
+                        </div>
+                        <div class="achievement" id="achievement512">
+                            <span class="achievement-tile">512</span>
+                            <span class="achievement-status">🔒</span>
+                        </div>
+                        <div class="achievement" id="achievement1024">
+                            <span class="achievement-tile">1024</span>
+                            <span class="achievement-status">🔒</span>
+                        </div>
+                        <div class="achievement" id="achievement2048">
+                            <span class="achievement-tile">2048</span>
+                            <span class="achievement-status">🔒</span>
+                        </div>
+                        <div class="achievement" id="achievement4096">
+                            <span class="achievement-tile">4096</span>
+                            <span class="achievement-status">🔒</span>
+                        </div>
+                        <div class="achievement" id="achievement8192">
+                            <span class="achievement-tile">8192</span>
+                            <span class="achievement-status">🔒</span>
+                        </div>
+                        <div class="achievement" id="achievement16384">
+                            <span class="achievement-tile">16384</span>
+                            <span class="achievement-status">🔒</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Game Board -->
+            <div id="game2048Board" class="game2048-board size-4">
+                <!-- Tiles will be generated dynamically -->
+            </div>
+
+            <!-- Game Instructions -->
+            <div class="game2048-instructions">
+                <p><strong>How to Play:</strong> Use arrow keys (↑↓←→) or WASD to move tiles. Combine tiles with the
+                    same number to reach 2048!</p>
+                <div id="aiInstructions" class="ai-instructions hidden">
+                    <p><strong>AI Mode:</strong> Watch the AI solve the puzzle automatically, or use AI Assist for
+                        hints!</p>
+                </div>
+            </div>
+
+            <div id="game2048Result" class="result"></div>
+
+            <!-- Game Controls -->
+            <div class="game-controls">
+                <button id="new2048Game" class="new-game-btn">New Game</button>
+                <button id="undo2048" class="undo-btn">Undo Move</button>
+                <button id="reset2048Stats" class="reset-btn">Reset Stats</button>
+                <button id="backFrom2048" class="back-btn">Kembali</button>
+            </div>
+        </div>
+
+        <!-- Tetris Game -->
+        <div id="tetrisGame" class="game-container hidden">
+            <h2>Tetris Game Enhanced</h2>
+
+            <!-- Game Settings -->
+            <div class="tetris-settings">
+                <!-- Game Mode -->
+                <div class="setting-group">
+                    <h3>Game Mode:</h3>
+                    <div class="mode-buttons">
+                        <button id="tetrisManual" class="tetris-mode-btn active">Manual Play</button>
+                        <button id="tetrisAI" class="tetris-mode-btn">AI Player</button>
+                        <button id="tetrisAssist" class="tetris-mode-btn">AI Assist</button>
+                    </div>
+                </div>
+
+                <!-- Theme Selection -->
+                <div class="setting-group">
+                    <h3>Visual Theme:</h3>
+                    <div class="theme-buttons">
+                        <button id="tetrisClassic" class="tetris-theme-btn active">Classic</button>
+                        <button id="tetrisNeon" class="tetris-theme-btn">Neon</button>
+                        <button id="tetrisRetro" class="tetris-theme-btn">Retro</button>
+                        <button id="tetrisMinimal" class="tetris-theme-btn">Minimal</button>
+                    </div>
+                </div>
+
+                <!-- Speed Level -->
+                <div class="setting-group">
+                    <h3>Starting Speed:</h3>
+                    <div class="speed-controls">
+                        <input type="range" id="tetrisSpeed" min="1" max="10" value="1" step="1">
+                        <span id="tetrisSpeedValue">Level 1</span>
+                    </div>
+                </div>
+
+                <!-- AI Settings -->
+                <div id="tetrisAISettings" class="setting-group hidden">
+                    <h3>AI Settings:</h3>
+                    <div class="ai-controls">
+                        <button id="tetrisAIStep" class="ai-btn">AI Step</button>
+                        <button id="tetrisAIPlay" class="ai-btn">Auto Play</button>
+                        <button id="tetrisAIStop" class="ai-btn">Stop AI</button>
+                    </div>
+                    <div class="ai-speed">
+                        <label for="tetrisAISpeed">AI Speed:</label>
+                        <input type="range" id="tetrisAISpeed" min="50" max="1000" value="200" step="50">
+                        <span id="tetrisAISpeedValue">200ms</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Game Status -->
+            <div class="tetris-status">
+                <div class="tetris-info">
+                    <div class="info-item">
+                        <span class="info-label">Score:</span>
+                        <span id="tetrisScore">0</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Level:</span>
+                        <span id="tetrisLevel">1</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Lines:</span>
+                        <span id="tetrisLines">0</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Best:</span>
+                        <span id="tetrisBest">0</span>
+                    </div>
+                </div>
+
+                <!-- Line Clear Achievements -->
+                <div class="tetris-achievements">
+                    <h3>Line Clear Achievements</h3>
+                    <div class="achievement-grid">
+                        <div class="achievement" id="tetrisSingle">
+                            <span class="achievement-name">Single</span>
+                            <span class="achievement-count" id="tetrisSingleCount">0</span>
+                            <span class="achievement-status">📊</span>
+                        </div>
+                        <div class="achievement" id="tetrisDouble">
+                            <span class="achievement-name">Double</span>
+                            <span class="achievement-count" id="tetrisDoubleCount">0</span>
+                            <span class="achievement-status">📈</span>
+                        </div>
+                        <div class="achievement" id="tetrisTriple">
+                            <span class="achievement-name">Triple</span>
+                            <span class="achievement-count" id="tetrisTripleCount">0</span>
+                            <span class="achievement-status">🔥</span>
+                        </div>
+                        <div class="achievement" id="tetrisTetris">
+                            <span class="achievement-name">Tetris</span>
+                            <span class="achievement-count" id="tetrisTetrisCount">0</span>
+                            <span class="achievement-status">💎</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Game Area -->
+            <div class="tetris-game-area">
+                <!-- Next Piece Preview -->
+                <div class="tetris-next">
+                    <h4>Next</h4>
+                    <div id="tetrisNextPiece" class="next-piece-preview"></div>
+                </div>
+
+                <!-- Main Game Board -->
+                <div id="tetrisBoard" class="tetris-board theme-classic">
+                    <!-- Game board will be generated dynamically -->
+                </div>
+
+                <!-- Hold Piece -->
+                <div class="tetris-hold">
+                    <h4>Hold</h4>
+                    <div id="tetrisHoldPiece" class="hold-piece-preview"></div>
+                    <button id="tetrisHoldBtn" class="hold-btn">Hold (C)</button>
+                </div>
+            </div>
+
+            <!-- Game Instructions -->
+            <div class="tetris-instructions">
+                <p><strong>Controls:</strong> ←→ Move, ↓ Soft Drop, ↑ Rotate, Space Hard Drop, C Hold</p>
+                <div id="tetrisAIInstructions" class="ai-instructions hidden">
+                    <p><strong>AI Mode:</strong> Watch the AI play optimally or use AI Assist for move suggestions!</p>
+                </div>
+            </div>
+
+            <div id="tetrisResult" class="result"></div>
+
+            <!-- Game Controls -->
+            <div class="game-controls">
+                <button id="newTetrisGame" class="new-game-btn">New Game</button>
+                <button id="pauseTetris" class="pause-btn">Pause</button>
+                <button id="resetTetrisStats" class="reset-btn">Reset Stats</button>
+                <button id="backFromTetris" class="back-btn">Kembali</button>
+            </div>
         </div>
     </div>
 

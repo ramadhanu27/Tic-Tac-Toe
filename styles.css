@@ -18,9 +18,10 @@ body {
   border-radius: 15px;
   padding: 30px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-  max-width: 500px;
-  width: 90%;
+  max-width: 1200px;
+  width: 95%;
   text-align: center;
+  margin: 20px auto;
 }
 
 h1 {
@@ -36,26 +37,36 @@ h2 {
 }
 
 .game-selector {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
   justify-content: center;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .game-btn {
   background: linear-gradient(45deg, #667eea, #764ba2);
   color: white;
   border: none;
-  padding: 15px 25px;
-  border-radius: 10px;
-  font-size: 1.1em;
+  padding: 20px 30px;
+  border-radius: 12px;
+  font-size: 1.2em;
+  font-weight: 600;
   cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: all 0.3s ease;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .game-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(45deg, #5a6fd8, #6a4c93);
 }
 
 .game-container {
@@ -68,15 +79,34 @@ h2 {
 
 .game-info {
   background: #f8f9fa;
-  padding: 15px;
-  border-radius: 10px;
-  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 25px;
+  border: 1px solid #e9ecef;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+  text-align: center;
 }
 
 .game-info p {
-  margin: 5px 0;
-  font-weight: bold;
-  color: #555;
+  margin: 0;
+  font-weight: 600;
+  color: #495057;
+  background: white;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #dee2e6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.game-info p span {
+  font-size: 1.2em;
+  color: #667eea;
 }
 
 .input-group {
@@ -276,25 +306,275 @@ button:hover {
   }
 }
 
-/* Bot Helper for Guess Number Game */
-.bot-helper {
-  margin: 20px 0;
-  padding: 15px;
+/* Enhanced Tic-Tac-Toe Styles */
+.game-settings {
   background: #f8f9fa;
-  border-radius: 10px;
+  border-radius: 15px;
+  padding: 25px;
+  margin: 20px 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  align-items: start;
 }
 
-.bot-helper h3 {
+.setting-group {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e9ecef;
+}
+
+.setting-group h3 {
   margin: 0 0 15px 0;
+  color: #495057;
+  font-size: 1.1em;
+  font-weight: 600;
+  text-align: center;
+  border-bottom: 2px solid #667eea;
+  padding-bottom: 8px;
+}
+
+.size-buttons,
+.tournament-buttons {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.size-btn,
+.tournament-btn {
+  background: #6c757d;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 0.85em;
+  cursor: pointer;
+  transition: all 0.3s;
+  min-width: 60px;
+}
+
+.size-btn:hover,
+.tournament-btn:hover {
+  background: #5a6268;
+  transform: translateY(-1px);
+}
+
+.size-btn.active,
+.tournament-btn.active {
+  background: #667eea;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+}
+
+.symbol-selection {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.symbol-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.symbol-group label {
+  font-size: 0.9em;
   color: #555;
+  font-weight: bold;
+}
+
+.symbol-group select {
+  padding: 8px 12px;
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  font-size: 1.2em;
+  background: white;
+  cursor: pointer;
+  min-width: 80px;
+}
+
+.symbol-group select:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+/* Game Status Styles */
+.game-status {
+  background: #f8f9fa;
+  border-radius: 15px;
+  padding: 25px;
+  margin: 20px 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+  align-items: start;
+}
+
+.current-game-info {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e9ecef;
+}
+
+.current-game-info p {
+  margin: 8px 0;
+  font-weight: 600;
+  color: #495057;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Timer Styles */
+.timer {
+  background: #fff3cd;
+  border: 2px solid #ffeaa7;
+  border-radius: 10px;
+  padding: 15px;
+  margin-top: 15px;
+}
+
+.timer p {
+  margin: 0 0 10px 0;
+  text-align: center;
+  font-size: 1.1em;
+  color: #856404;
+}
+
+.timer-bar {
+  width: 100%;
+  height: 8px;
+  background: #f8d7da;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.timer-progress {
+  height: 100%;
+  background: linear-gradient(90deg, #28a745, #ffc107, #dc3545);
+  transition: width 1s linear;
+  border-radius: 4px;
+}
+
+/* Tournament Status */
+.tournament-status {
+  background: linear-gradient(135deg, #e7f3ff 0%, #f0f8ff 100%);
+  border: 2px solid #b3d9ff;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  grid-column: 1 / -1;
+}
+
+.tournament-status h3 {
+  margin: 0 0 15px 0;
+  color: #0066cc;
+  font-size: 1.2em;
+  font-weight: 600;
+  text-align: center;
+  border-bottom: 2px solid #0066cc;
+  padding-bottom: 8px;
+}
+
+.tournament-status p {
+  margin: 8px 0;
+  color: #0066cc;
+  font-weight: 600;
+  text-align: center;
   font-size: 1.1em;
 }
 
+/* Statistics */
+.statistics {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e9ecef;
+}
+
+.statistics h3 {
+  margin: 0 0 20px 0;
+  color: #495057;
+  font-size: 1.2em;
+  font-weight: 600;
+  text-align: center;
+  border-bottom: 2px solid #28a745;
+  padding-bottom: 10px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 15px;
+}
+
+.stat-item {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+  border: 2px solid #dee2e6;
+  transition: all 0.3s ease;
+}
+
+.stat-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-color: #667eea;
+}
+
+.stat-label {
+  display: block;
+  font-size: 0.85em;
+  color: #6c757d;
+  margin-bottom: 8px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.stat-item span:last-child {
+  font-weight: bold;
+  color: #495057;
+  font-size: 1.4em;
+  display: block;
+}
+
+/* Bot Helper for Guess Number Game */
+.bot-helper {
+  margin: 20px 0;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 12px;
+  border: 1px solid #e9ecef;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.bot-helper h3 {
+  margin: 0 0 20px 0;
+  color: #495057;
+  font-size: 1.2em;
+  font-weight: 600;
+  text-align: center;
+  border-bottom: 2px solid #28a745;
+  padding-bottom: 10px;
+}
+
 .helper-buttons {
-  display: flex;
-  gap: 10px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 15px;
   justify-content: center;
-  flex-wrap: wrap;
 }
 
 .helper-btn {
@@ -341,6 +621,1259 @@ button:hover {
   animation: pulse 1s infinite;
 }
 
+/* Dynamic Board Sizes */
+.board.size-3 {
+  grid-template-columns: repeat(3, 1fr);
+  max-width: 300px;
+}
+
+.board.size-4 {
+  grid-template-columns: repeat(4, 1fr);
+  max-width: 320px;
+}
+
+.board.size-5 {
+  grid-template-columns: repeat(5, 1fr);
+  max-width: 350px;
+}
+
+.board.size-4 .cell {
+  height: 60px;
+  font-size: 1.5em;
+}
+
+.board.size-5 .cell {
+  height: 50px;
+  font-size: 1.2em;
+}
+
+/* Game Controls */
+.game-controls {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+  justify-content: center;
+  margin-top: 25px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.timer-btn {
+  background: #17a2b8;
+  margin: 5px;
+}
+
+.timer-btn:hover {
+  background: #138496;
+}
+
+/* Custom Symbol Styling */
+.cell.symbol-spade {
+  color: #000;
+}
+.cell.symbol-heart {
+  color: #e74c3c;
+}
+.cell.symbol-diamond {
+  color: #e74c3c;
+}
+.cell.symbol-club {
+  color: #000;
+}
+.cell.symbol-star {
+  color: #f39c12;
+}
+.cell.symbol-circle {
+  color: #3498db;
+}
+.cell.symbol-triangle {
+  color: #9b59b6;
+}
+.cell.symbol-square {
+  color: #2ecc71;
+}
+
+/* Responsive Design for Enhanced Features */
+@media (max-width: 768px) {
+  .game-settings {
+    padding: 15px;
+  }
+
+  .setting-group h3 {
+    font-size: 0.9em;
+  }
+
+  .size-btn,
+  .tournament-btn {
+    padding: 6px 12px;
+    font-size: 0.8em;
+    min-width: 50px;
+  }
+
+  .symbol-selection {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  .stat-item {
+    padding: 8px;
+  }
+
+  .game-controls {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .game-controls button {
+    width: 100%;
+    max-width: 200px;
+  }
+
+  .board.size-4 {
+    max-width: 280px;
+  }
+
+  .board.size-5 {
+    max-width: 300px;
+  }
+
+  .board.size-4 .cell {
+    height: 50px;
+    font-size: 1.3em;
+  }
+
+  .board.size-5 .cell {
+    height: 40px;
+    font-size: 1em;
+  }
+}
+
+/* Memory Card Game Styles */
+.memory-settings {
+  background: #f8f9fa;
+  border-radius: 15px;
+  padding: 25px;
+  margin: 20px 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  align-items: start;
+}
+
+.memory-difficulty-btn,
+.theme-btn,
+.memory-mode-btn {
+  background: #6c757d;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 0.85em;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin: 2px;
+}
+
+.memory-difficulty-btn:hover,
+.theme-btn:hover,
+.memory-mode-btn:hover {
+  background: #5a6268;
+  transform: translateY(-1px);
+}
+
+.memory-difficulty-btn.active,
+.theme-btn.active,
+.memory-mode-btn.active {
+  background: #667eea;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+}
+
+.theme-buttons,
+.difficulty-buttons,
+.mode-buttons {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Memory Game Status */
+.memory-status {
+  background: #f8f9fa;
+  border-radius: 15px;
+  padding: 25px;
+  margin: 20px 0;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 25px;
+  align-items: start;
+}
+
+.memory-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 15px;
+  margin-bottom: 0;
+}
+
+.info-item {
+  text-align: center;
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  border: 2px solid #dee2e6;
+  min-width: 100px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.info-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-color: #667eea;
+}
+
+.info-label {
+  display: block;
+  font-size: 0.85em;
+  color: #6c757d;
+  margin-bottom: 8px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.info-item span:last-child {
+  font-weight: bold;
+  color: #495057;
+  font-size: 1.3em;
+  display: block;
+}
+
+/* Speed Timer */
+.speed-timer {
+  background: #fff3cd !important;
+  border: 2px solid #ffeaa7 !important;
+}
+
+.speed-timer-bar {
+  width: 100%;
+  height: 6px;
+  background: #f8d7da;
+  border-radius: 3px;
+  overflow: hidden;
+  margin-top: 8px;
+}
+
+.speed-timer-progress {
+  height: 100%;
+  background: linear-gradient(90deg, #28a745, #ffc107, #dc3545);
+  transition: width 1s linear;
+  border-radius: 3px;
+}
+
+/* Memory Statistics */
+.memory-statistics {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e9ecef;
+}
+
+.memory-statistics h3 {
+  margin: 0 0 20px 0;
+  color: #495057;
+  font-size: 1.2em;
+  font-weight: 600;
+  text-align: center;
+  border-bottom: 2px solid #17a2b8;
+  padding-bottom: 10px;
+}
+
+.memory-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 12px;
+}
+
+/* Memory Board */
+.memory-board {
+  display: grid;
+  gap: 8px;
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 15px;
+}
+
+.memory-board.size-4 {
+  grid-template-columns: repeat(4, 1fr);
+  max-width: 400px;
+}
+
+.memory-board.size-6 {
+  grid-template-columns: repeat(6, 1fr);
+  max-width: 480px;
+}
+
+.memory-board.size-8 {
+  grid-template-columns: repeat(8, 1fr);
+  max-width: 560px;
+}
+
+/* Memory Cards */
+.memory-card {
+  aspect-ratio: 1;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: white;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  min-height: 60px;
+}
+
+.memory-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.memory-card.flipped {
+  background: white;
+  color: #333;
+  border: 2px solid #667eea;
+  transform: rotateY(180deg);
+}
+
+.memory-card.matched {
+  background: #28a745;
+  color: white;
+  cursor: default;
+  animation: matchPulse 0.6s ease;
+}
+
+.memory-card.wrong {
+  background: #dc3545;
+  animation: wrongShake 0.5s ease;
+}
+
+.memory-card.disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* Card Content */
+.card-content {
+  transition: all 0.3s ease;
+  transform-style: preserve-3d;
+}
+
+.memory-card.flipped .card-content {
+  transform: rotateY(180deg);
+}
+
+/* Theme-specific card styles */
+.memory-card.theme-colors {
+  border: 3px solid #fff;
+}
+
+.memory-card.theme-symbols {
+  font-size: 2em;
+}
+
+.memory-card.theme-emojis {
+  font-size: 2.5em;
+}
+
+.memory-card.theme-numbers {
+  font-family: "Courier New", monospace;
+  font-size: 2em;
+  font-weight: bold;
+}
+
+/* Animations */
+@keyframes matchPulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes wrongShake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+}
+
+@keyframes cardFlip {
+  0% {
+    transform: rotateY(0);
+  }
+  50% {
+    transform: rotateY(90deg);
+  }
+  100% {
+    transform: rotateY(180deg);
+  }
+}
+
+/* Responsive Design for Memory Game */
+@media (max-width: 768px) {
+  .memory-board.size-4 {
+    max-width: 320px;
+    gap: 6px;
+  }
+
+  .memory-board.size-6 {
+    max-width: 360px;
+    gap: 4px;
+  }
+
+  .memory-board.size-8 {
+    max-width: 400px;
+    gap: 3px;
+  }
+
+  .memory-card {
+    font-size: 1.2em;
+    min-height: 50px;
+  }
+
+  .memory-card.theme-symbols {
+    font-size: 1.5em;
+  }
+
+  .memory-card.theme-emojis {
+    font-size: 1.8em;
+  }
+
+  .memory-info {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .info-item {
+    min-width: 120px;
+  }
+
+  .memory-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* 2048 Game Styles */
+.game2048-settings {
+  background: #f8f9fa;
+  border-radius: 15px;
+  padding: 25px;
+  margin: 20px 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  align-items: start;
+}
+
+.grid-size-buttons,
+.game2048-mode-btn {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.grid-size-btn,
+.game2048-mode-btn {
+  background: #6c757d;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 0.85em;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin: 2px;
+}
+
+.grid-size-btn:hover,
+.game2048-mode-btn:hover {
+  background: #5a6268;
+  transform: translateY(-1px);
+}
+
+.grid-size-btn.active,
+.game2048-mode-btn.active {
+  background: #667eea;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+}
+
+/* AI Settings */
+.ai-controls {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+}
+
+.ai-btn {
+  background: #17a2b8;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 0.85em;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.ai-btn:hover {
+  background: #138496;
+  transform: translateY(-1px);
+}
+
+.ai-btn:disabled {
+  background: #6c757d;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.ai-speed {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+}
+
+.ai-speed label {
+  font-size: 0.9em;
+  color: #495057;
+  font-weight: 500;
+}
+
+.ai-speed input[type="range"] {
+  width: 120px;
+}
+
+.ai-speed span {
+  font-size: 0.85em;
+  color: #6c757d;
+  min-width: 50px;
+}
+
+/* 2048 Game Status */
+.game2048-status {
+  background: #f8f9fa;
+  border-radius: 15px;
+  padding: 25px;
+  margin: 20px 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+  align-items: start;
+}
+
+.game2048-info {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+/* Achievements */
+.achievements {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e9ecef;
+}
+
+.achievements h3 {
+  margin: 0 0 20px 0;
+  color: #495057;
+  font-size: 1.2em;
+  font-weight: 600;
+  text-align: center;
+  border-bottom: 2px solid #ffc107;
+  padding-bottom: 10px;
+}
+
+.achievement-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.achievement {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border: 2px solid #dee2e6;
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.achievement.unlocked {
+  background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+  border-color: #28a745;
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);
+}
+
+.achievement-tile {
+  display: block;
+  font-weight: bold;
+  font-size: 0.8em;
+  color: #495057;
+  margin-bottom: 5px;
+}
+
+.achievement.unlocked .achievement-tile {
+  color: #155724;
+}
+
+.achievement-status {
+  font-size: 1.2em;
+}
+
+.achievement.unlocked .achievement-status {
+  content: "🏆";
+}
+
+/* 2048 Game Board */
+.game2048-board {
+  background: #bbada0;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 20px auto;
+  display: grid;
+  gap: 10px;
+  position: relative;
+  max-width: 500px;
+}
+
+.game2048-board.size-3 {
+  grid-template-columns: repeat(3, 1fr);
+  max-width: 360px;
+}
+
+.game2048-board.size-4 {
+  grid-template-columns: repeat(4, 1fr);
+  max-width: 480px;
+}
+
+.game2048-board.size-5 {
+  grid-template-columns: repeat(5, 1fr);
+  max-width: 500px;
+}
+
+.game2048-board.size-6 {
+  grid-template-columns: repeat(6, 1fr);
+  max-width: 540px;
+}
+
+/* 2048 Tiles */
+.game2048-tile {
+  background: rgba(238, 228, 218, 0.35);
+  border-radius: 6px;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 2em;
+  color: #776e65;
+  transition: all 0.15s ease-in-out;
+  position: relative;
+  min-height: 80px;
+}
+
+.game2048-tile.tile-2 {
+  background: #eee4da;
+  color: #776e65;
+}
+.game2048-tile.tile-4 {
+  background: #ede0c8;
+  color: #776e65;
+}
+.game2048-tile.tile-8 {
+  background: #f2b179;
+  color: #f9f6f2;
+}
+.game2048-tile.tile-16 {
+  background: #f59563;
+  color: #f9f6f2;
+}
+.game2048-tile.tile-32 {
+  background: #f67c5f;
+  color: #f9f6f2;
+}
+.game2048-tile.tile-64 {
+  background: #f65e3b;
+  color: #f9f6f2;
+}
+.game2048-tile.tile-128 {
+  background: #edcf72;
+  color: #f9f6f2;
+  font-size: 1.8em;
+}
+.game2048-tile.tile-256 {
+  background: #edcc61;
+  color: #f9f6f2;
+  font-size: 1.8em;
+}
+.game2048-tile.tile-512 {
+  background: #edc850;
+  color: #f9f6f2;
+  font-size: 1.8em;
+}
+.game2048-tile.tile-1024 {
+  background: #edc53f;
+  color: #f9f6f2;
+  font-size: 1.5em;
+}
+.game2048-tile.tile-2048 {
+  background: #edc22e;
+  color: #f9f6f2;
+  font-size: 1.5em;
+  box-shadow: 0 0 20px rgba(237, 194, 46, 0.5);
+}
+.game2048-tile.tile-4096 {
+  background: #3c3a32;
+  color: #f9f6f2;
+  font-size: 1.3em;
+}
+.game2048-tile.tile-8192 {
+  background: #3c3a32;
+  color: #f9f6f2;
+  font-size: 1.1em;
+}
+.game2048-tile.tile-16384 {
+  background: #3c3a32;
+  color: #f9f6f2;
+  font-size: 1em;
+}
+
+.game2048-tile.new-tile {
+  animation: tileAppear 0.2s ease-in-out;
+}
+
+.game2048-tile.merged-tile {
+  animation: tileMerge 0.2s ease-in-out;
+}
+
+/* Game Instructions */
+.game2048-instructions {
+  background: #e7f3ff;
+  border: 2px solid #b3d9ff;
+  border-radius: 10px;
+  padding: 15px;
+  margin: 20px 0;
+  text-align: center;
+}
+
+.game2048-instructions p {
+  margin: 0;
+  color: #0066cc;
+  font-weight: 500;
+}
+
+.ai-instructions {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #b3d9ff;
+}
+
+.ai-instructions p {
+  color: #17a2b8;
+  font-style: italic;
+}
+
+/* Undo Button */
+.undo-btn {
+  background: #ffc107;
+  margin: 5px;
+}
+
+.undo-btn:hover {
+  background: #e0a800;
+}
+
+.undo-btn:disabled {
+  background: #6c757d;
+  cursor: not-allowed;
+}
+
+/* Animations */
+@keyframes tileAppear {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes tileMerge {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes achievementUnlock {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    transform: scale(1.2) rotate(5deg);
+  }
+  100% {
+    transform: scale(1.05) rotate(0deg);
+  }
+}
+
+.achievement.just-unlocked {
+  animation: achievementUnlock 0.6s ease-in-out;
+}
+
+/* Tetris Game Styles */
+.tetris-settings {
+  background: #f8f9fa;
+  border-radius: 15px;
+  padding: 25px;
+  margin: 20px 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  align-items: start;
+}
+
+.tetris-mode-btn,
+.tetris-theme-btn {
+  background: #6c757d;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 0.85em;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin: 2px;
+}
+
+.tetris-mode-btn:hover,
+.tetris-theme-btn:hover {
+  background: #5a6268;
+  transform: translateY(-1px);
+}
+
+.tetris-mode-btn.active,
+.tetris-theme-btn.active {
+  background: #667eea;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+}
+
+.speed-controls {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  justify-content: center;
+}
+
+.speed-controls input[type="range"] {
+  width: 150px;
+}
+
+.speed-controls span {
+  font-weight: bold;
+  color: #495057;
+  min-width: 70px;
+}
+
+/* Tetris Game Status */
+.tetris-status {
+  background: #f8f9fa;
+  border-radius: 15px;
+  padding: 25px;
+  margin: 20px 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+  align-items: start;
+}
+
+.tetris-info {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+/* Tetris Achievements */
+.tetris-achievements {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e9ecef;
+}
+
+.tetris-achievements h3 {
+  margin: 0 0 20px 0;
+  color: #495057;
+  font-size: 1.2em;
+  font-weight: 600;
+  text-align: center;
+  border-bottom: 2px solid #28a745;
+  padding-bottom: 10px;
+}
+
+.tetris-achievements .achievement-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.tetris-achievements .achievement {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border: 2px solid #dee2e6;
+  border-radius: 8px;
+  padding: 15px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.achievement-name {
+  display: block;
+  font-weight: bold;
+  font-size: 0.9em;
+  color: #495057;
+  margin-bottom: 5px;
+}
+
+.achievement-count {
+  display: block;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #667eea;
+  margin-bottom: 5px;
+}
+
+.achievement-status {
+  font-size: 1.2em;
+}
+
+/* Tetris Game Area */
+.tetris-game-area {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 20px;
+  align-items: start;
+  margin: 20px 0;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.tetris-next,
+.tetris-hold {
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  border: 1px solid #e9ecef;
+}
+
+.tetris-next h4,
+.tetris-hold h4 {
+  margin: 0 0 15px 0;
+  color: #495057;
+  font-size: 1.1em;
+  font-weight: 600;
+}
+
+.next-piece-preview,
+.hold-piece-preview {
+  width: 80px;
+  height: 80px;
+  background: white;
+  border: 2px solid #dee2e6;
+  border-radius: 8px;
+  margin: 0 auto 15px auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap: 1px;
+}
+
+.hold-btn {
+  background: #17a2b8;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 0.85em;
+  cursor: pointer;
+  transition: all 0.3s;
+  width: 100%;
+}
+
+.hold-btn:hover {
+  background: #138496;
+}
+
+.hold-btn:disabled {
+  background: #6c757d;
+  cursor: not-allowed;
+}
+
+/* Tetris Board */
+.tetris-board {
+  width: 300px;
+  height: 600px;
+  background: #2c3e50;
+  border: 3px solid #34495e;
+  border-radius: 8px;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(20, 1fr);
+  gap: 1px;
+  padding: 2px;
+  position: relative;
+  overflow: hidden;
+}
+
+.tetris-cell {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  transition: all 0.1s ease;
+}
+
+.tetris-cell.filled {
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Tetris Piece Colors - Classic Theme */
+.theme-classic .tetris-cell.I {
+  background: #00f0f0;
+}
+.theme-classic .tetris-cell.O {
+  background: #f0f000;
+}
+.theme-classic .tetris-cell.T {
+  background: #a000f0;
+}
+.theme-classic .tetris-cell.S {
+  background: #00f000;
+}
+.theme-classic .tetris-cell.Z {
+  background: #f00000;
+}
+.theme-classic .tetris-cell.J {
+  background: #0000f0;
+}
+.theme-classic .tetris-cell.L {
+  background: #f0a000;
+}
+
+/* Neon Theme */
+.theme-neon .tetris-board {
+  background: #0a0a0a;
+  border-color: #00ff00;
+  box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+}
+
+.theme-neon .tetris-cell.I {
+  background: #00ffff;
+  box-shadow: 0 0 10px #00ffff;
+}
+.theme-neon .tetris-cell.O {
+  background: #ffff00;
+  box-shadow: 0 0 10px #ffff00;
+}
+.theme-neon .tetris-cell.T {
+  background: #ff00ff;
+  box-shadow: 0 0 10px #ff00ff;
+}
+.theme-neon .tetris-cell.S {
+  background: #00ff00;
+  box-shadow: 0 0 10px #00ff00;
+}
+.theme-neon .tetris-cell.Z {
+  background: #ff0000;
+  box-shadow: 0 0 10px #ff0000;
+}
+.theme-neon .tetris-cell.J {
+  background: #0080ff;
+  box-shadow: 0 0 10px #0080ff;
+}
+.theme-neon .tetris-cell.L {
+  background: #ff8000;
+  box-shadow: 0 0 10px #ff8000;
+}
+
+/* Retro Theme */
+.theme-retro .tetris-board {
+  background: #8b4513;
+  border-color: #654321;
+  filter: sepia(20%);
+}
+
+.theme-retro .tetris-cell.I {
+  background: #4169e1;
+}
+.theme-retro .tetris-cell.O {
+  background: #ffd700;
+}
+.theme-retro .tetris-cell.T {
+  background: #9370db;
+}
+.theme-retro .tetris-cell.S {
+  background: #32cd32;
+}
+.theme-retro .tetris-cell.Z {
+  background: #dc143c;
+}
+.theme-retro .tetris-cell.J {
+  background: #1e90ff;
+}
+.theme-retro .tetris-cell.L {
+  background: #ff8c00;
+}
+
+/* Minimal Theme */
+.theme-minimal .tetris-board {
+  background: #ffffff;
+  border-color: #cccccc;
+}
+
+.theme-minimal .tetris-cell {
+  background: #f8f9fa;
+}
+
+.theme-minimal .tetris-cell.filled {
+  background: #495057;
+  border-color: #343a40;
+}
+
+/* Tetris Instructions */
+.tetris-instructions {
+  background: #e7f3ff;
+  border: 2px solid #b3d9ff;
+  border-radius: 10px;
+  padding: 15px;
+  margin: 20px 0;
+  text-align: center;
+}
+
+.tetris-instructions p {
+  margin: 0;
+  color: #0066cc;
+  font-weight: 500;
+}
+
+/* Pause Button */
+.pause-btn {
+  background: #ffc107;
+  margin: 5px;
+}
+
+.pause-btn:hover {
+  background: #e0a800;
+}
+
+.pause-btn.paused {
+  background: #28a745;
+}
+
+.pause-btn.paused:hover {
+  background: #218838;
+}
+
+/* Tetris Animations */
+@keyframes lineClear {
+  0% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scaleY(0.8);
+  }
+  100% {
+    opacity: 0;
+    transform: scaleY(0);
+  }
+}
+
+@keyframes pieceDrop {
+  0% {
+    transform: translateY(-20px);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes levelUp {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.tetris-cell.clearing {
+  animation: lineClear 0.3s ease-in-out;
+}
+
+.tetris-cell.dropping {
+  animation: pieceDrop 0.2s ease-out;
+}
+
+.level-up {
+  animation: levelUp 0.5s ease-in-out;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -352,19 +1885,153 @@ button:hover {
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   .container {
     padding: 20px;
+    max-width: 95%;
   }
 
   .game-selector {
-    flex-direction: column;
-    align-items: center;
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .game-btn {
+    padding: 15px 20px;
+    font-size: 1.1em;
+  }
+
+  .game-settings {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .game-status {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .memory-status {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .memory-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .memory-info {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  /* 2048 Game Mobile */
+  .game2048-settings {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .game2048-status {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .game2048-info {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .achievement-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+  }
+
+  .achievement {
+    padding: 8px;
+  }
+
+  .achievement-tile {
+    font-size: 0.7em;
+  }
+
+  .game2048-board {
+    max-width: 320px;
+    gap: 8px;
+    padding: 8px;
+  }
+
+  .game2048-tile {
+    font-size: 1.5em;
+    min-height: 60px;
+  }
+
+  .game2048-tile.tile-128,
+  .game2048-tile.tile-256,
+  .game2048-tile.tile-512 {
+    font-size: 1.3em;
+  }
+
+  .game2048-tile.tile-1024,
+  .game2048-tile.tile-2048 {
+    font-size: 1.1em;
+  }
+
+  .game2048-tile.tile-4096,
+  .game2048-tile.tile-8192,
+  .game2048-tile.tile-16384 {
+    font-size: 0.9em;
+  }
+
+  /* Tetris Game Mobile */
+  .tetris-settings {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .tetris-status {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .tetris-info {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .tetris-game-area {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    text-align: center;
+  }
+
+  .tetris-board {
+    width: 250px;
+    height: 500px;
+    margin: 0 auto;
+  }
+
+  .next-piece-preview,
+  .hold-piece-preview {
+    width: 60px;
+    height: 60px;
+  }
+
+  .tetris-next,
+  .tetris-hold {
+    padding: 15px;
   }
 
   .input-group {
     flex-direction: column;
     align-items: center;
+    gap: 15px;
   }
 
   input[type="number"] {
@@ -379,5 +2046,10 @@ button:hover {
   .cell {
     height: 60px;
     font-size: 1.5em;
+  }
+
+  .game-controls {
+    grid-template-columns: 1fr;
+    gap: 10px;
   }
 }

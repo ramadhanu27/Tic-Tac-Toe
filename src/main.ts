@@ -3973,3 +3973,17 @@ class TetrisGame {
     this.updateDisplay();
   }
 }
+
+// Bootstrap application: ensure event listeners are registered
+(() => {
+  const startApp = () => {
+    // Instantiate the GameManager to wire up all UI interactions
+    new GameManager();
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", startApp);
+  } else {
+    startApp();
+  }
+})();

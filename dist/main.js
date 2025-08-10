@@ -11,75 +11,83 @@ class GameManager {
         this.showGameSelector();
     }
     initializeEventListeners() {
+        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k;
         // Game selector buttons
-        document.getElementById("guessNumberBtn")?.addEventListener("click", () => {
+        (_a = document.getElementById("guessNumberBtn")) === null || _a === void 0 ? void 0 : _a.addEventListener("click", () => {
             this.showGuessNumberGame();
         });
-        document.getElementById("ticTacToeBtn")?.addEventListener("click", () => {
+        (_b = document.getElementById("ticTacToeBtn")) === null || _b === void 0 ? void 0 : _b.addEventListener("click", () => {
             this.showTicTacToeGame();
         });
-        document.getElementById("memoryCardBtn")?.addEventListener("click", () => {
+        (_c = document.getElementById("memoryCardBtn")) === null || _c === void 0 ? void 0 : _c.addEventListener("click", () => {
             this.showMemoryCardGame();
         });
-        document.getElementById("game2048Btn")?.addEventListener("click", () => {
+        (_d = document.getElementById("game2048Btn")) === null || _d === void 0 ? void 0 : _d.addEventListener("click", () => {
             this.show2048Game();
         });
-        document.getElementById("tetrisBtn")?.addEventListener("click", () => {
+        (_e = document.getElementById("tetrisBtn")) === null || _e === void 0 ? void 0 : _e.addEventListener("click", () => {
             this.showTetrisGame();
         });
         // Back buttons
-        document.getElementById("backFromGuess")?.addEventListener("click", () => {
+        (_f = document.getElementById("backFromGuess")) === null || _f === void 0 ? void 0 : _f.addEventListener("click", () => {
             this.showGameSelector();
         });
-        document.getElementById("backFromTicTacToe")?.addEventListener("click", () => {
+        (_g = document.getElementById("backFromTicTacToe")) === null || _g === void 0 ? void 0 : _g.addEventListener("click", () => {
             this.showGameSelector();
         });
-        document.getElementById("backFromMemory")?.addEventListener("click", () => {
+        (_h = document.getElementById("backFromMemory")) === null || _h === void 0 ? void 0 : _h.addEventListener("click", () => {
             this.showGameSelector();
         });
-        document.getElementById("backFrom2048")?.addEventListener("click", () => {
+        (_j = document.getElementById("backFrom2048")) === null || _j === void 0 ? void 0 : _j.addEventListener("click", () => {
             this.showGameSelector();
         });
-        document.getElementById("backFromTetris")?.addEventListener("click", () => {
+        (_k = document.getElementById("backFromTetris")) === null || _k === void 0 ? void 0 : _k.addEventListener("click", () => {
             this.showGameSelector();
         });
     }
     showGameSelector() {
+        var _a;
         this.hideAllGames();
-        document.querySelector(".game-selector")?.classList.remove("hidden");
+        (_a = document.querySelector(".game-selector")) === null || _a === void 0 ? void 0 : _a.classList.remove("hidden");
     }
     showGuessNumberGame() {
+        var _a;
         this.hideAllGames();
-        document.getElementById("guessNumberGame")?.classList.remove("hidden");
+        (_a = document.getElementById("guessNumberGame")) === null || _a === void 0 ? void 0 : _a.classList.remove("hidden");
         this.guessNumberGame.startNewGame();
     }
     showTicTacToeGame() {
+        var _a;
         this.hideAllGames();
-        document.getElementById("ticTacToeGame")?.classList.remove("hidden");
+        (_a = document.getElementById("ticTacToeGame")) === null || _a === void 0 ? void 0 : _a.classList.remove("hidden");
         this.ticTacToeGame.startNewGame();
     }
     showMemoryCardGame() {
+        var _a;
         this.hideAllGames();
-        document.getElementById("memoryCardGame")?.classList.remove("hidden");
+        (_a = document.getElementById("memoryCardGame")) === null || _a === void 0 ? void 0 : _a.classList.remove("hidden");
         this.memoryCardGame.startNewGame();
     }
     show2048Game() {
+        var _a;
         this.hideAllGames();
-        document.getElementById("game2048")?.classList.remove("hidden");
+        (_a = document.getElementById("game2048")) === null || _a === void 0 ? void 0 : _a.classList.remove("hidden");
         this.game2048.startNewGame();
     }
     showTetrisGame() {
+        var _a;
         this.hideAllGames();
-        document.getElementById("tetrisGame")?.classList.remove("hidden");
+        (_a = document.getElementById("tetrisGame")) === null || _a === void 0 ? void 0 : _a.classList.remove("hidden");
         this.tetrisGame.startNewGame();
     }
     hideAllGames() {
-        document.querySelector(".game-selector")?.classList.add("hidden");
-        document.getElementById("guessNumberGame")?.classList.add("hidden");
-        document.getElementById("ticTacToeGame")?.classList.add("hidden");
-        document.getElementById("memoryCardGame")?.classList.add("hidden");
-        document.getElementById("game2048")?.classList.add("hidden");
-        document.getElementById("tetrisGame")?.classList.add("hidden");
+        var _a, _b, _c, _d, _e, _f;
+        (_a = document.querySelector(".game-selector")) === null || _a === void 0 ? void 0 : _a.classList.add("hidden");
+        (_b = document.getElementById("guessNumberGame")) === null || _b === void 0 ? void 0 : _b.classList.add("hidden");
+        (_c = document.getElementById("ticTacToeGame")) === null || _c === void 0 ? void 0 : _c.classList.add("hidden");
+        (_d = document.getElementById("memoryCardGame")) === null || _d === void 0 ? void 0 : _d.classList.add("hidden");
+        (_e = document.getElementById("game2048")) === null || _e === void 0 ? void 0 : _e.classList.add("hidden");
+        (_f = document.getElementById("tetrisGame")) === null || _f === void 0 ? void 0 : _f.classList.add("hidden");
     }
 }
 // Guess Number Game Class
@@ -97,25 +105,26 @@ class GuessNumberGame {
         this.initializeEventListeners();
     }
     initializeEventListeners() {
-        document.getElementById("submitGuess")?.addEventListener("click", () => {
+        var _a, _b, _c, _d, _e, _f;
+        (_a = document.getElementById("submitGuess")) === null || _a === void 0 ? void 0 : _a.addEventListener("click", () => {
             this.makeGuess();
         });
-        document.getElementById("guessInput")?.addEventListener("keypress", (e) => {
+        (_b = document.getElementById("guessInput")) === null || _b === void 0 ? void 0 : _b.addEventListener("keypress", (e) => {
             if (e.key === "Enter") {
                 this.makeGuess();
             }
         });
-        document.getElementById("newGameGuess")?.addEventListener("click", () => {
+        (_c = document.getElementById("newGameGuess")) === null || _c === void 0 ? void 0 : _c.addEventListener("click", () => {
             this.startNewGame();
         });
         // Bot helper buttons
-        document.getElementById("getHint")?.addEventListener("click", () => {
+        (_d = document.getElementById("getHint")) === null || _d === void 0 ? void 0 : _d.addEventListener("click", () => {
             this.getHint();
         });
-        document.getElementById("autoSolve")?.addEventListener("click", () => {
+        (_e = document.getElementById("autoSolve")) === null || _e === void 0 ? void 0 : _e.addEventListener("click", () => {
             this.autoSolve();
         });
-        document.getElementById("showRange")?.addEventListener("click", () => {
+        (_f = document.getElementById("showRange")) === null || _f === void 0 ? void 0 : _f.addEventListener("click", () => {
             this.toggleRange();
         });
     }
@@ -357,18 +366,19 @@ class TicTacToeGame {
         this.board = new Array(this.boardSize * this.boardSize).fill("");
     }
     initializeUI() {
+        var _a, _b, _c, _d;
         // Set initial game mode UI
         document.querySelectorAll(".mode-btn").forEach((btn) => btn.classList.remove("active"));
-        document.getElementById("pvpMode")?.classList.add("active");
+        (_a = document.getElementById("pvpMode")) === null || _a === void 0 ? void 0 : _a.classList.add("active");
         // Set initial board size UI
         document.querySelectorAll(".size-btn").forEach((btn) => btn.classList.remove("active"));
-        document.getElementById("size3")?.classList.add("active");
+        (_b = document.getElementById("size3")) === null || _b === void 0 ? void 0 : _b.classList.add("active");
         // Set initial tournament mode UI
         document.querySelectorAll(".tournament-btn").forEach((btn) => btn.classList.remove("active"));
-        document.getElementById("single")?.classList.add("active");
+        (_c = document.getElementById("single")) === null || _c === void 0 ? void 0 : _c.classList.add("active");
         // Set initial bot difficulty UI
         document.querySelectorAll(".difficulty-btn").forEach((btn) => btn.classList.remove("active"));
-        document.getElementById("mediumBot")?.classList.add("active");
+        (_d = document.getElementById("mediumBot")) === null || _d === void 0 ? void 0 : _d.classList.add("active");
         // Hide bot difficulty initially (PvP mode)
         const botDifficultyDiv = document.getElementById("botDifficulty");
         if (botDifficultyDiv) {
@@ -390,66 +400,67 @@ class TicTacToeGame {
         this.updateStatisticsDisplay();
     }
     initializeEventListeners() {
+        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s;
         const cells = document.querySelectorAll(".cell");
         cells.forEach((cell, index) => {
             cell.addEventListener("click", () => {
                 this.makeMove(index);
             });
         });
-        document.getElementById("newGameTicTacToe")?.addEventListener("click", () => {
+        (_a = document.getElementById("newGameTicTacToe")) === null || _a === void 0 ? void 0 : _a.addEventListener("click", () => {
             this.startNewGame();
         });
-        document.getElementById("resetStats")?.addEventListener("click", () => {
+        (_b = document.getElementById("resetStats")) === null || _b === void 0 ? void 0 : _b.addEventListener("click", () => {
             this.resetStatistics();
         });
-        document.getElementById("toggleTimer")?.addEventListener("click", () => {
+        (_c = document.getElementById("toggleTimer")) === null || _c === void 0 ? void 0 : _c.addEventListener("click", () => {
             this.toggleTimer();
         });
         // Game mode buttons
-        document.getElementById("pvpMode")?.addEventListener("click", () => {
+        (_d = document.getElementById("pvpMode")) === null || _d === void 0 ? void 0 : _d.addEventListener("click", () => {
             this.setGameMode("pvp");
         });
-        document.getElementById("pvbMode")?.addEventListener("click", () => {
+        (_e = document.getElementById("pvbMode")) === null || _e === void 0 ? void 0 : _e.addEventListener("click", () => {
             this.setGameMode("pvb");
         });
         // Board size buttons
-        document.getElementById("size3")?.addEventListener("click", () => {
+        (_f = document.getElementById("size3")) === null || _f === void 0 ? void 0 : _f.addEventListener("click", () => {
             this.setBoardSize(3);
         });
-        document.getElementById("size4")?.addEventListener("click", () => {
+        (_g = document.getElementById("size4")) === null || _g === void 0 ? void 0 : _g.addEventListener("click", () => {
             this.setBoardSize(4);
         });
-        document.getElementById("size5")?.addEventListener("click", () => {
+        (_h = document.getElementById("size5")) === null || _h === void 0 ? void 0 : _h.addEventListener("click", () => {
             this.setBoardSize(5);
         });
         // Tournament mode buttons
-        document.getElementById("single")?.addEventListener("click", () => {
+        (_j = document.getElementById("single")) === null || _j === void 0 ? void 0 : _j.addEventListener("click", () => {
             this.setTournamentMode("single");
         });
-        document.getElementById("best3")?.addEventListener("click", () => {
+        (_k = document.getElementById("best3")) === null || _k === void 0 ? void 0 : _k.addEventListener("click", () => {
             this.setTournamentMode("best3");
         });
-        document.getElementById("best5")?.addEventListener("click", () => {
+        (_l = document.getElementById("best5")) === null || _l === void 0 ? void 0 : _l.addEventListener("click", () => {
             this.setTournamentMode("best5");
         });
-        document.getElementById("best7")?.addEventListener("click", () => {
+        (_m = document.getElementById("best7")) === null || _m === void 0 ? void 0 : _m.addEventListener("click", () => {
             this.setTournamentMode("best7");
         });
         // Symbol selection
-        document.getElementById("player1Symbol")?.addEventListener("change", (e) => {
+        (_o = document.getElementById("player1Symbol")) === null || _o === void 0 ? void 0 : _o.addEventListener("change", (e) => {
             this.setPlayer1Symbol(e.target.value);
         });
-        document.getElementById("player2Symbol")?.addEventListener("change", (e) => {
+        (_p = document.getElementById("player2Symbol")) === null || _p === void 0 ? void 0 : _p.addEventListener("change", (e) => {
             this.setPlayer2Symbol(e.target.value);
         });
         // Bot difficulty buttons
-        document.getElementById("easyBot")?.addEventListener("click", () => {
+        (_q = document.getElementById("easyBot")) === null || _q === void 0 ? void 0 : _q.addEventListener("click", () => {
             this.setBotDifficulty("easy");
         });
-        document.getElementById("mediumBot")?.addEventListener("click", () => {
+        (_r = document.getElementById("mediumBot")) === null || _r === void 0 ? void 0 : _r.addEventListener("click", () => {
             this.setBotDifficulty("medium");
         });
-        document.getElementById("hardBot")?.addEventListener("click", () => {
+        (_s = document.getElementById("hardBot")) === null || _s === void 0 ? void 0 : _s.addEventListener("click", () => {
             this.setBotDifficulty("hard");
         });
     }
@@ -468,10 +479,11 @@ class TicTacToeGame {
         }
     }
     setGameMode(mode) {
+        var _a;
         this.gameMode = mode;
         // Update UI
         document.querySelectorAll(".mode-btn").forEach((btn) => btn.classList.remove("active"));
-        document.getElementById(mode === "pvp" ? "pvpMode" : "pvbMode")?.classList.add("active");
+        (_a = document.getElementById(mode === "pvp" ? "pvpMode" : "pvbMode")) === null || _a === void 0 ? void 0 : _a.classList.add("active");
         // Show/hide bot difficulty
         const botDifficultyDiv = document.getElementById("botDifficulty");
         if (botDifficultyDiv) {
@@ -485,23 +497,26 @@ class TicTacToeGame {
         this.startNewGame();
     }
     setBotDifficulty(difficulty) {
+        var _a;
         this.botDifficulty = difficulty;
         // Update UI
         document.querySelectorAll(".difficulty-btn").forEach((btn) => btn.classList.remove("active"));
-        document.getElementById(`${difficulty}Bot`)?.classList.add("active");
+        (_a = document.getElementById(`${difficulty}Bot`)) === null || _a === void 0 ? void 0 : _a.classList.add("active");
         this.startNewGame();
     }
     setBoardSize(size) {
+        var _a;
         this.boardSize = size;
         this.initializeBoard();
         // Update UI
         document.querySelectorAll(".size-btn").forEach((btn) => btn.classList.remove("active"));
-        document.getElementById(`size${size}`)?.classList.add("active");
+        (_a = document.getElementById(`size${size}`)) === null || _a === void 0 ? void 0 : _a.classList.add("active");
         this.updateBoardSizeDisplay();
         this.createBoardElements();
         this.startNewGame();
     }
     setTournamentMode(mode) {
+        var _a;
         this.tournament.mode = mode;
         // Calculate total games
         switch (mode) {
@@ -528,7 +543,7 @@ class TicTacToeGame {
         this.tournament.player2Score = 0;
         // Update UI
         document.querySelectorAll(".tournament-btn").forEach((btn) => btn.classList.remove("active"));
-        document.getElementById(mode)?.classList.add("active");
+        (_a = document.getElementById(mode)) === null || _a === void 0 ? void 0 : _a.classList.add("active");
         this.updateTournamentDisplay();
         this.startNewGame();
     }
@@ -1105,52 +1120,54 @@ class MemoryCardGame {
         };
     }
     initializeEventListeners() {
+        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l;
         // Difficulty buttons
-        document.getElementById("memory4x4")?.addEventListener("click", () => {
+        (_a = document.getElementById("memory4x4")) === null || _a === void 0 ? void 0 : _a.addEventListener("click", () => {
             this.setDifficulty(4);
         });
-        document.getElementById("memory6x6")?.addEventListener("click", () => {
+        (_b = document.getElementById("memory6x6")) === null || _b === void 0 ? void 0 : _b.addEventListener("click", () => {
             this.setDifficulty(6);
         });
-        document.getElementById("memory8x8")?.addEventListener("click", () => {
+        (_c = document.getElementById("memory8x8")) === null || _c === void 0 ? void 0 : _c.addEventListener("click", () => {
             this.setDifficulty(8);
         });
         // Theme buttons
-        document.getElementById("themeNumbers")?.addEventListener("click", () => {
+        (_d = document.getElementById("themeNumbers")) === null || _d === void 0 ? void 0 : _d.addEventListener("click", () => {
             this.setTheme("numbers");
         });
-        document.getElementById("themeColors")?.addEventListener("click", () => {
+        (_e = document.getElementById("themeColors")) === null || _e === void 0 ? void 0 : _e.addEventListener("click", () => {
             this.setTheme("colors");
         });
-        document.getElementById("themeSymbols")?.addEventListener("click", () => {
+        (_f = document.getElementById("themeSymbols")) === null || _f === void 0 ? void 0 : _f.addEventListener("click", () => {
             this.setTheme("symbols");
         });
-        document.getElementById("themeEmojis")?.addEventListener("click", () => {
+        (_g = document.getElementById("themeEmojis")) === null || _g === void 0 ? void 0 : _g.addEventListener("click", () => {
             this.setTheme("emojis");
         });
         // Mode buttons
-        document.getElementById("memoryRelaxed")?.addEventListener("click", () => {
+        (_h = document.getElementById("memoryRelaxed")) === null || _h === void 0 ? void 0 : _h.addEventListener("click", () => {
             this.setMode("relaxed");
         });
-        document.getElementById("memorySpeed")?.addEventListener("click", () => {
+        (_j = document.getElementById("memorySpeed")) === null || _j === void 0 ? void 0 : _j.addEventListener("click", () => {
             this.setMode("speed");
         });
         // Game controls
-        document.getElementById("newMemoryGame")?.addEventListener("click", () => {
+        (_k = document.getElementById("newMemoryGame")) === null || _k === void 0 ? void 0 : _k.addEventListener("click", () => {
             this.startNewGame();
         });
-        document.getElementById("resetMemoryStats")?.addEventListener("click", () => {
+        (_l = document.getElementById("resetMemoryStats")) === null || _l === void 0 ? void 0 : _l.addEventListener("click", () => {
             this.resetStatistics();
         });
     }
     initializeUI() {
+        var _a, _b, _c;
         // Set initial button states
         document.querySelectorAll(".memory-difficulty-btn").forEach((btn) => btn.classList.remove("active"));
-        document.getElementById("memory4x4")?.classList.add("active");
+        (_a = document.getElementById("memory4x4")) === null || _a === void 0 ? void 0 : _a.classList.add("active");
         document.querySelectorAll(".theme-btn").forEach((btn) => btn.classList.remove("active"));
-        document.getElementById("themeNumbers")?.classList.add("active");
+        (_b = document.getElementById("themeNumbers")) === null || _b === void 0 ? void 0 : _b.classList.add("active");
         document.querySelectorAll(".memory-mode-btn").forEach((btn) => btn.classList.remove("active"));
-        document.getElementById("memoryRelaxed")?.classList.add("active");
+        (_c = document.getElementById("memoryRelaxed")) === null || _c === void 0 ? void 0 : _c.classList.add("active");
         // Hide speed timer initially
         const speedTimer = document.getElementById("memorySpeedTimer");
         if (speedTimer)
@@ -1179,26 +1196,29 @@ class MemoryCardGame {
         }
     }
     setDifficulty(difficulty) {
+        var _a;
         this.gameState.difficulty = difficulty;
         // Update UI
         document.querySelectorAll(".memory-difficulty-btn").forEach((btn) => btn.classList.remove("active"));
-        document.getElementById(`memory${difficulty}x${difficulty}`)?.classList.add("active");
+        (_a = document.getElementById(`memory${difficulty}x${difficulty}`)) === null || _a === void 0 ? void 0 : _a.classList.add("active");
         this.startNewGame();
     }
     setTheme(theme) {
+        var _a;
         this.gameState.theme = theme;
         // Update UI
         document.querySelectorAll(".theme-btn").forEach((btn) => btn.classList.remove("active"));
         const themeId = theme.charAt(0).toUpperCase() + theme.slice(1);
-        document.getElementById(`theme${themeId}`)?.classList.add("active");
+        (_a = document.getElementById(`theme${themeId}`)) === null || _a === void 0 ? void 0 : _a.classList.add("active");
         this.startNewGame();
     }
     setMode(mode) {
+        var _a;
         this.gameState.mode = mode;
         // Update UI
         document.querySelectorAll(".memory-mode-btn").forEach((btn) => btn.classList.remove("active"));
         const modeId = mode.charAt(0).toUpperCase() + mode.slice(1);
-        document.getElementById(`memory${modeId}`)?.classList.add("active");
+        (_a = document.getElementById(`memory${modeId}`)) === null || _a === void 0 ? void 0 : _a.classList.add("active");
         // Show/hide speed timer
         const speedTimer = document.getElementById("memorySpeedTimer");
         if (speedTimer) {
@@ -1298,11 +1318,11 @@ class MemoryCardGame {
             card2.isFlipped = false;
             if (card1.element) {
                 card1.element.classList.add("wrong");
-                setTimeout(() => card1.element?.classList.remove("wrong"), 500);
+                setTimeout(() => { var _a; return (_a = card1.element) === null || _a === void 0 ? void 0 : _a.classList.remove("wrong"); }, 500);
             }
             if (card2.element) {
                 card2.element.classList.add("wrong");
-                setTimeout(() => card2.element?.classList.remove("wrong"), 500);
+                setTimeout(() => { var _a; return (_a = card2.element) === null || _a === void 0 ? void 0 : _a.classList.remove("wrong"); }, 500);
             }
             setTimeout(() => {
                 this.updateCardDisplay(card1);
@@ -1503,59 +1523,61 @@ class Game2048 {
         };
     }
     initializeEventListeners() {
+        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o;
         // Grid size buttons
-        document.getElementById("grid3x3")?.addEventListener("click", () => {
+        (_a = document.getElementById("grid3x3")) === null || _a === void 0 ? void 0 : _a.addEventListener("click", () => {
             this.setGridSize(3);
         });
-        document.getElementById("grid4x4")?.addEventListener("click", () => {
+        (_b = document.getElementById("grid4x4")) === null || _b === void 0 ? void 0 : _b.addEventListener("click", () => {
             this.setGridSize(4);
         });
-        document.getElementById("grid5x5")?.addEventListener("click", () => {
+        (_c = document.getElementById("grid5x5")) === null || _c === void 0 ? void 0 : _c.addEventListener("click", () => {
             this.setGridSize(5);
         });
-        document.getElementById("grid6x6")?.addEventListener("click", () => {
+        (_d = document.getElementById("grid6x6")) === null || _d === void 0 ? void 0 : _d.addEventListener("click", () => {
             this.setGridSize(6);
         });
         // Game mode buttons
-        document.getElementById("manualMode")?.addEventListener("click", () => {
+        (_e = document.getElementById("manualMode")) === null || _e === void 0 ? void 0 : _e.addEventListener("click", () => {
             this.setGameMode("manual");
         });
-        document.getElementById("aiMode")?.addEventListener("click", () => {
+        (_f = document.getElementById("aiMode")) === null || _f === void 0 ? void 0 : _f.addEventListener("click", () => {
             this.setGameMode("ai");
         });
-        document.getElementById("assistMode")?.addEventListener("click", () => {
+        (_g = document.getElementById("assistMode")) === null || _g === void 0 ? void 0 : _g.addEventListener("click", () => {
             this.setGameMode("assist");
         });
         // AI controls
-        document.getElementById("aiStep")?.addEventListener("click", () => {
+        (_h = document.getElementById("aiStep")) === null || _h === void 0 ? void 0 : _h.addEventListener("click", () => {
             this.aiStep();
         });
-        document.getElementById("aiAutoPlay")?.addEventListener("click", () => {
+        (_j = document.getElementById("aiAutoPlay")) === null || _j === void 0 ? void 0 : _j.addEventListener("click", () => {
             this.aiAutoPlay();
         });
-        document.getElementById("aiStop")?.addEventListener("click", () => {
+        (_k = document.getElementById("aiStop")) === null || _k === void 0 ? void 0 : _k.addEventListener("click", () => {
             this.aiStop();
         });
         // AI speed slider
         const aiSpeedSlider = document.getElementById("aiSpeed");
-        aiSpeedSlider?.addEventListener("input", (e) => {
+        aiSpeedSlider === null || aiSpeedSlider === void 0 ? void 0 : aiSpeedSlider.addEventListener("input", (e) => {
             const target = e.target;
             this.gameState.aiSpeed = parseInt(target.value);
             this.updateAISpeedDisplay();
         });
         // Game controls
-        document.getElementById("new2048Game")?.addEventListener("click", () => {
+        (_l = document.getElementById("new2048Game")) === null || _l === void 0 ? void 0 : _l.addEventListener("click", () => {
             this.startNewGame();
         });
-        document.getElementById("undo2048")?.addEventListener("click", () => {
+        (_m = document.getElementById("undo2048")) === null || _m === void 0 ? void 0 : _m.addEventListener("click", () => {
             this.undoMove();
         });
-        document.getElementById("reset2048Stats")?.addEventListener("click", () => {
+        (_o = document.getElementById("reset2048Stats")) === null || _o === void 0 ? void 0 : _o.addEventListener("click", () => {
             this.resetStatistics();
         });
         // Keyboard controls
         document.addEventListener("keydown", (e) => {
-            if (document.getElementById("game2048")?.classList.contains("hidden"))
+            var _a;
+            if ((_a = document.getElementById("game2048")) === null || _a === void 0 ? void 0 : _a.classList.contains("hidden"))
                 return;
             if (this.gameState.gameMode === "manual" || this.gameState.gameMode === "assist") {
                 this.handleKeyPress(e);
@@ -1563,11 +1585,12 @@ class Game2048 {
         });
     }
     initializeUI() {
+        var _a, _b;
         // Set initial button states
         document.querySelectorAll(".grid-size-btn").forEach((btn) => btn.classList.remove("active"));
-        document.getElementById("grid4x4")?.classList.add("active");
+        (_a = document.getElementById("grid4x4")) === null || _a === void 0 ? void 0 : _a.classList.add("active");
         document.querySelectorAll(".game2048-mode-btn").forEach((btn) => btn.classList.remove("active"));
-        document.getElementById("manualMode")?.classList.add("active");
+        (_b = document.getElementById("manualMode")) === null || _b === void 0 ? void 0 : _b.classList.add("active");
         // Hide AI settings initially
         const aiSettings = document.getElementById("aiSettings");
         if (aiSettings)
@@ -1598,19 +1621,21 @@ class Game2048 {
         this.clearResult();
     }
     setGridSize(size) {
+        var _a;
         this.gameState.gridSize = size;
         // Update UI
         document.querySelectorAll(".grid-size-btn").forEach((btn) => btn.classList.remove("active"));
-        document.getElementById(`grid${size}x${size}`)?.classList.add("active");
+        (_a = document.getElementById(`grid${size}x${size}`)) === null || _a === void 0 ? void 0 : _a.classList.add("active");
         this.startNewGame();
     }
     setGameMode(mode) {
+        var _a;
         this.aiStop();
         this.gameState.gameMode = mode;
         // Update UI
         document.querySelectorAll(".game2048-mode-btn").forEach((btn) => btn.classList.remove("active"));
         const modeId = mode.charAt(0).toUpperCase() + mode.slice(1);
-        document.getElementById(`${mode}Mode`)?.classList.add("active");
+        (_a = document.getElementById(`${mode}Mode`)) === null || _a === void 0 ? void 0 : _a.classList.add("active");
         // Show/hide AI settings and instructions
         const aiSettings = document.getElementById("aiSettings");
         const aiInstructions = document.getElementById("aiInstructions");
@@ -1796,10 +1821,7 @@ class Game2048 {
             }
             else {
                 // Place tile
-                newRow[writeIndex] = {
-                    ...currentTile,
-                    col: writeIndex,
-                };
+                newRow[writeIndex] = Object.assign(Object.assign({}, currentTile), { col: writeIndex });
                 if (currentTile.col !== writeIndex) {
                     moved = true;
                 }
@@ -1826,10 +1848,7 @@ class Game2048 {
             }
             else {
                 // Place tile
-                newRow[writeIndex] = {
-                    ...currentTile,
-                    col: writeIndex,
-                };
+                newRow[writeIndex] = Object.assign(Object.assign({}, currentTile), { col: writeIndex });
                 if (currentTile.col !== writeIndex) {
                     moved = true;
                 }
@@ -1864,10 +1883,7 @@ class Game2048 {
             }
             else {
                 // Place tile
-                this.gameState.grid[writeIndex][col] = {
-                    ...currentTile,
-                    row: writeIndex,
-                };
+                this.gameState.grid[writeIndex][col] = Object.assign(Object.assign({}, currentTile), { row: writeIndex });
                 if (currentTile.row !== writeIndex) {
                     moved = true;
                 }
@@ -1901,10 +1917,7 @@ class Game2048 {
             }
             else {
                 // Place tile
-                this.gameState.grid[writeIndex][col] = {
-                    ...currentTile,
-                    row: writeIndex,
-                };
+                this.gameState.grid[writeIndex][col] = Object.assign(Object.assign({}, currentTile), { row: writeIndex });
                 if (currentTile.row !== writeIndex) {
                     moved = true;
                 }
@@ -1982,7 +1995,7 @@ class Game2048 {
         return score;
     }
     cloneGrid() {
-        return this.gameState.grid.map((row) => row.map((tile) => (tile ? { ...tile } : null)));
+        return this.gameState.grid.map((row) => row.map((tile) => (tile ? Object.assign({}, tile) : null)));
     }
     getEmptyCellCount() {
         let count = 0;
@@ -2457,70 +2470,72 @@ class TetrisGame {
         };
     }
     initializeEventListeners() {
+        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p;
         // Game mode buttons
-        document.getElementById("tetrisManual")?.addEventListener("click", () => {
+        (_a = document.getElementById("tetrisManual")) === null || _a === void 0 ? void 0 : _a.addEventListener("click", () => {
             this.setGameMode("manual");
         });
-        document.getElementById("tetrisAI")?.addEventListener("click", () => {
+        (_b = document.getElementById("tetrisAI")) === null || _b === void 0 ? void 0 : _b.addEventListener("click", () => {
             this.setGameMode("ai");
         });
-        document.getElementById("tetrisAssist")?.addEventListener("click", () => {
+        (_c = document.getElementById("tetrisAssist")) === null || _c === void 0 ? void 0 : _c.addEventListener("click", () => {
             this.setGameMode("assist");
         });
         // Theme buttons
-        document.getElementById("tetrisClassic")?.addEventListener("click", () => {
+        (_d = document.getElementById("tetrisClassic")) === null || _d === void 0 ? void 0 : _d.addEventListener("click", () => {
             this.setTheme("classic");
         });
-        document.getElementById("tetrisNeon")?.addEventListener("click", () => {
+        (_e = document.getElementById("tetrisNeon")) === null || _e === void 0 ? void 0 : _e.addEventListener("click", () => {
             this.setTheme("neon");
         });
-        document.getElementById("tetrisRetro")?.addEventListener("click", () => {
+        (_f = document.getElementById("tetrisRetro")) === null || _f === void 0 ? void 0 : _f.addEventListener("click", () => {
             this.setTheme("retro");
         });
-        document.getElementById("tetrisMinimal")?.addEventListener("click", () => {
+        (_g = document.getElementById("tetrisMinimal")) === null || _g === void 0 ? void 0 : _g.addEventListener("click", () => {
             this.setTheme("minimal");
         });
         // Speed control
         const speedSlider = document.getElementById("tetrisSpeed");
-        speedSlider?.addEventListener("input", (e) => {
+        speedSlider === null || speedSlider === void 0 ? void 0 : speedSlider.addEventListener("input", (e) => {
             const target = e.target;
             this.gameState.level = parseInt(target.value);
             this.updateDropInterval();
             this.updateSpeedDisplay();
         });
         // AI controls
-        document.getElementById("tetrisAIStep")?.addEventListener("click", () => {
+        (_h = document.getElementById("tetrisAIStep")) === null || _h === void 0 ? void 0 : _h.addEventListener("click", () => {
             this.aiStep();
         });
-        document.getElementById("tetrisAIPlay")?.addEventListener("click", () => {
+        (_j = document.getElementById("tetrisAIPlay")) === null || _j === void 0 ? void 0 : _j.addEventListener("click", () => {
             this.aiAutoPlay();
         });
-        document.getElementById("tetrisAIStop")?.addEventListener("click", () => {
+        (_k = document.getElementById("tetrisAIStop")) === null || _k === void 0 ? void 0 : _k.addEventListener("click", () => {
             this.aiStop();
         });
         // AI speed slider
         const aiSpeedSlider = document.getElementById("tetrisAISpeed");
-        aiSpeedSlider?.addEventListener("input", (e) => {
+        aiSpeedSlider === null || aiSpeedSlider === void 0 ? void 0 : aiSpeedSlider.addEventListener("input", (e) => {
             const target = e.target;
             this.gameState.aiSpeed = parseInt(target.value);
             this.updateAISpeedDisplay();
         });
         // Game controls
-        document.getElementById("newTetrisGame")?.addEventListener("click", () => {
+        (_l = document.getElementById("newTetrisGame")) === null || _l === void 0 ? void 0 : _l.addEventListener("click", () => {
             this.startNewGame();
         });
-        document.getElementById("pauseTetris")?.addEventListener("click", () => {
+        (_m = document.getElementById("pauseTetris")) === null || _m === void 0 ? void 0 : _m.addEventListener("click", () => {
             this.togglePause();
         });
-        document.getElementById("tetrisHoldBtn")?.addEventListener("click", () => {
+        (_o = document.getElementById("tetrisHoldBtn")) === null || _o === void 0 ? void 0 : _o.addEventListener("click", () => {
             this.holdPiece();
         });
-        document.getElementById("resetTetrisStats")?.addEventListener("click", () => {
+        (_p = document.getElementById("resetTetrisStats")) === null || _p === void 0 ? void 0 : _p.addEventListener("click", () => {
             this.resetStatistics();
         });
         // Keyboard controls
         document.addEventListener("keydown", (e) => {
-            if (document.getElementById("tetrisGame")?.classList.contains("hidden"))
+            const tetrisGame = document.getElementById("tetrisGame");
+            if (!tetrisGame || tetrisGame.classList.contains("hidden"))
                 return;
             if (this.gameState.gameMode === "manual" || this.gameState.gameMode === "assist") {
                 this.handleKeyPress(e);
@@ -2528,11 +2543,12 @@ class TetrisGame {
         });
     }
     initializeUI() {
+        var _a, _b;
         // Set initial button states
         document.querySelectorAll(".tetris-mode-btn").forEach((btn) => btn.classList.remove("active"));
-        document.getElementById("tetrisManual")?.classList.add("active");
+        (_a = document.getElementById("tetrisManual")) === null || _a === void 0 ? void 0 : _a.classList.add("active");
         document.querySelectorAll(".tetris-theme-btn").forEach((btn) => btn.classList.remove("active"));
-        document.getElementById("tetrisClassic")?.classList.add("active");
+        (_b = document.getElementById("tetrisClassic")) === null || _b === void 0 ? void 0 : _b.classList.add("active");
         // Hide AI settings initially
         const aiSettings = document.getElementById("tetrisAISettings");
         if (aiSettings)
@@ -2547,12 +2563,16 @@ class TetrisGame {
     }
     // Game Control Methods
     startNewGame() {
+        console.log("Starting new Tetris game...");
         this.aiStop();
+        this.stopGameLoop();
+        // Initialize game state
         this.gameState.board = Array(this.BOARD_HEIGHT)
             .fill(null)
             .map(() => Array(this.BOARD_WIDTH).fill(null));
         this.gameState.score = 0;
-        this.gameState.level = parseInt(document.getElementById("tetrisSpeed")?.value || "1");
+        const speedSlider = document.getElementById("tetrisSpeed");
+        this.gameState.level = speedSlider ? parseInt(speedSlider.value) : 1;
         this.gameState.lines = 0;
         this.gameState.isGameOver = false;
         this.gameState.isPaused = false;
@@ -2561,18 +2581,28 @@ class TetrisGame {
         this.gameState.currentPiece = null;
         this.gameState.nextPiece = this.generateRandomPiece();
         this.updateDropInterval();
-        this.spawnNewPiece();
         this.createBoard();
+        this.spawnNewPiece();
         this.updateDisplay();
+        this.updateNextPieceDisplay();
+        this.updateHoldPieceDisplay();
         this.clearResult();
+        // Reset pause button
+        const pauseBtn = document.getElementById("pauseTetris");
+        if (pauseBtn) {
+            pauseBtn.textContent = "Pause";
+            pauseBtn.classList.remove("paused");
+        }
         this.startGameLoop();
+        console.log("Tetris game started successfully");
     }
     setGameMode(mode) {
+        var _a;
         this.aiStop();
         this.gameState.gameMode = mode;
         // Update UI
         document.querySelectorAll(".tetris-mode-btn").forEach((btn) => btn.classList.remove("active"));
-        document.getElementById(`tetris${mode.charAt(0).toUpperCase() + mode.slice(1)}`)?.classList.add("active");
+        (_a = document.getElementById(`tetris${mode.charAt(0).toUpperCase() + mode.slice(1)}`)) === null || _a === void 0 ? void 0 : _a.classList.add("active");
         // Show/hide AI settings and instructions
         const aiSettings = document.getElementById("tetrisAISettings");
         const aiInstructions = document.getElementById("tetrisAIInstructions");
@@ -2585,10 +2615,11 @@ class TetrisGame {
         this.updateAIButtonStates();
     }
     setTheme(theme) {
+        var _a;
         this.gameState.theme = theme;
         // Update UI
         document.querySelectorAll(".tetris-theme-btn").forEach((btn) => btn.classList.remove("active"));
-        document.getElementById(`tetris${theme.charAt(0).toUpperCase() + theme.slice(1)}`)?.classList.add("active");
+        (_a = document.getElementById(`tetris${theme.charAt(0).toUpperCase() + theme.slice(1)}`)) === null || _a === void 0 ? void 0 : _a.classList.add("active");
         // Update board theme
         const board = document.getElementById("tetrisBoard");
         if (board) {
@@ -2699,11 +2730,7 @@ class TetrisGame {
     movePiece(dx, dy) {
         if (!this.gameState.currentPiece)
             return false;
-        const newPiece = {
-            ...this.gameState.currentPiece,
-            x: this.gameState.currentPiece.x + dx,
-            y: this.gameState.currentPiece.y + dy,
-        };
+        const newPiece = Object.assign(Object.assign({}, this.gameState.currentPiece), { x: this.gameState.currentPiece.x + dx, y: this.gameState.currentPiece.y + dy });
         if (this.isValidPosition(newPiece)) {
             this.gameState.currentPiece = newPiece;
             this.updateBoard();
@@ -2716,11 +2743,7 @@ class TetrisGame {
             return false;
         const rotations = this.PIECES[this.gameState.currentPiece.type];
         const newRotation = (this.gameState.currentPiece.rotation + 1) % rotations.length;
-        const newPiece = {
-            ...this.gameState.currentPiece,
-            rotation: newRotation,
-            shape: rotations[newRotation],
-        };
+        const newPiece = Object.assign(Object.assign({}, this.gameState.currentPiece), { rotation: newRotation, shape: rotations[newRotation] });
         if (this.isValidPosition(newPiece)) {
             this.gameState.currentPiece = newPiece;
             this.updateBoard();
@@ -2846,15 +2869,9 @@ class TetrisGame {
         // Try all possible positions and rotations
         for (let rotation = 0; rotation < this.PIECES[this.gameState.currentPiece.type].length; rotation++) {
             for (let x = 0; x < this.BOARD_WIDTH; x++) {
-                const testPiece = {
-                    ...this.gameState.currentPiece,
-                    x,
-                    y: 0,
-                    rotation,
-                    shape: this.PIECES[this.gameState.currentPiece.type][rotation],
-                };
+                const testPiece = Object.assign(Object.assign({}, this.gameState.currentPiece), { x, y: 0, rotation, shape: this.PIECES[this.gameState.currentPiece.type][rotation] });
                 // Drop piece to lowest valid position
-                while (this.isValidPosition({ ...testPiece, y: testPiece.y + 1 })) {
+                while (this.isValidPosition(Object.assign(Object.assign({}, testPiece), { y: testPiece.y + 1 }))) {
                     testPiece.y++;
                 }
                 if (this.isValidPosition(testPiece)) {
@@ -3124,19 +3141,27 @@ class TetrisGame {
         switch (linesCleared) {
             case 1:
                 this.statistics.lineClearStats.single++;
-                document.getElementById("tetrisSingleCount").textContent = this.statistics.lineClearStats.single.toString();
+                const singleElement = document.getElementById("tetrisSingleCount");
+                if (singleElement)
+                    singleElement.textContent = this.statistics.lineClearStats.single.toString();
                 break;
             case 2:
                 this.statistics.lineClearStats.double++;
-                document.getElementById("tetrisDoubleCount").textContent = this.statistics.lineClearStats.double.toString();
+                const doubleElement = document.getElementById("tetrisDoubleCount");
+                if (doubleElement)
+                    doubleElement.textContent = this.statistics.lineClearStats.double.toString();
                 break;
             case 3:
                 this.statistics.lineClearStats.triple++;
-                document.getElementById("tetrisTripleCount").textContent = this.statistics.lineClearStats.triple.toString();
+                const tripleElement = document.getElementById("tetrisTripleCount");
+                if (tripleElement)
+                    tripleElement.textContent = this.statistics.lineClearStats.triple.toString();
                 break;
             case 4:
                 this.statistics.lineClearStats.tetris++;
-                document.getElementById("tetrisTetrisCount").textContent = this.statistics.lineClearStats.tetris.toString();
+                const tetrisElement = document.getElementById("tetrisTetrisCount");
+                if (tetrisElement)
+                    tetrisElement.textContent = this.statistics.lineClearStats.tetris.toString();
                 this.showTetrisAchievement();
                 break;
         }
@@ -3268,14 +3293,21 @@ class TetrisGame {
         localStorage.setItem("tetrisStatistics", JSON.stringify(this.statistics));
     }
     updateStatisticsDisplay() {
-        document.getElementById("tetrisSingleCount").textContent = this.statistics.lineClearStats.single.toString();
-        document.getElementById("tetrisDoubleCount").textContent = this.statistics.lineClearStats.double.toString();
-        document.getElementById("tetrisTripleCount").textContent = this.statistics.lineClearStats.triple.toString();
-        document.getElementById("tetrisTetrisCount").textContent = this.statistics.lineClearStats.tetris.toString();
+        const singleElement = document.getElementById("tetrisSingleCount");
+        const doubleElement = document.getElementById("tetrisDoubleCount");
+        const tripleElement = document.getElementById("tetrisTripleCount");
+        const tetrisElement = document.getElementById("tetrisTetrisCount");
         const bestElement = document.getElementById("tetrisBest");
-        if (bestElement) {
+        if (singleElement)
+            singleElement.textContent = this.statistics.lineClearStats.single.toString();
+        if (doubleElement)
+            doubleElement.textContent = this.statistics.lineClearStats.double.toString();
+        if (tripleElement)
+            tripleElement.textContent = this.statistics.lineClearStats.triple.toString();
+        if (tetrisElement)
+            tetrisElement.textContent = this.statistics.lineClearStats.tetris.toString();
+        if (bestElement)
             bestElement.textContent = this.statistics.bestScore.toString();
-        }
     }
     resetStatistics() {
         this.statistics = {
@@ -3296,4 +3328,17 @@ class TetrisGame {
         this.updateDisplay();
     }
 }
+// Bootstrap application: ensure event listeners are registered
+(() => {
+    const startApp = () => {
+        // Instantiate the GameManager to wire up all UI interactions
+        new GameManager();
+    };
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", startApp);
+    }
+    else {
+        startApp();
+    }
+})();
 //# sourceMappingURL=main.js.map
